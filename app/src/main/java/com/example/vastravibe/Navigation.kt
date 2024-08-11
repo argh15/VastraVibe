@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.vastravibe.screens.DashboardScreen
 import com.example.vastravibe.screens.LandingScreen
+import com.example.vastravibe.screens.ProductScreen
 
 @Composable
 fun Navigation() {
@@ -19,7 +20,7 @@ fun Navigation() {
             DashboardScreen(navController = navController)
         }
         composable(route = Screen.Product.route) {
-//            LandingScreen(navController = navController)
+            ProductScreen(navController = navController)
         }
     }
 
