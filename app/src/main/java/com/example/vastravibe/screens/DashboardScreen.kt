@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,8 +21,15 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AccountCircle
+import androidx.compose.material.icons.outlined.AddCircle
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -94,6 +102,7 @@ fun DashboardScreen(navController: NavController) {
                         modifier = Modifier
                             .fillMaxHeight()
                             .weight(1f)
+                            .wrapContentHeight()
                             .padding(start = 16.dp),
                         singleLine = true,
                         decorationBox = { innerTextField ->
@@ -197,6 +206,51 @@ fun DashboardScreen(navController: NavController) {
                 }
             }
         }
+        Column (
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    color = Color.White,
+                    shape = RoundedCornerShape(
+                        topStart = 16.dp, topEnd = 16.dp
+                    )
+                )
+                .padding(top = 8.dp, bottom = 8.dp)
+                .align(Alignment.BottomCenter)
+        ) {
+            Row (
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon (
+                    imageVector = Icons.Outlined.AccountCircle,
+                    contentDescription = null,
+                    modifier = Modifier.size(30.dp)
+                )
+                Icon (
+                    imageVector = Icons.Outlined.ShoppingCart,
+                    contentDescription = null,
+                    modifier = Modifier.size(30.dp)
+                )
+                Icon (
+                    imageVector = Icons.Outlined.AddCircle,
+                    contentDescription = null,
+                    modifier = Modifier.size(30.dp),
+                    tint = Color(android.graphics.Color.parseColor("#509790"))
+                )
+                Icon (
+                    imageVector = Icons.Outlined.FavoriteBorder,
+                    contentDescription = null,
+                    modifier = Modifier.size(30.dp)
+                )
+                Icon (
+                    imageVector = Icons.Outlined.Settings,
+                    contentDescription = null,
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+        }
     }
 }
 
@@ -209,7 +263,7 @@ fun ProductView (
     navController: NavController
 ) {
     ElevatedCard (
-        modifier = Modifier.clickable (
+        modifier = modifier.clickable (
             interactionSource = remember {
                 MutableInteractionSource()
             },

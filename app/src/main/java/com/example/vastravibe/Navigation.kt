@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.vastravibe.screens.DashboardScreen
 import com.example.vastravibe.screens.LandingScreen
 
 @Composable
@@ -15,7 +16,7 @@ fun Navigation() {
             LandingScreen(navController = navController)
         }
         composable(route = Screen.Dashboard.route) {
-//            LandingScreen(navController = navController)
+            DashboardScreen(navController = navController)
         }
         composable(route = Screen.Product.route) {
 //            LandingScreen(navController = navController)
